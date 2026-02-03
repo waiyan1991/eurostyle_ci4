@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: eurostyle-myanmar
+    env: php
+    plan: free
+    buildCommand: composer install --no-dev
+    startCommand: heroku-php-apache2 public/
+    envVars:
+      - key: APP_ENVIRONMENT
+        value: production
+      - key: CI_ENVIRONMENT
+        value: production
