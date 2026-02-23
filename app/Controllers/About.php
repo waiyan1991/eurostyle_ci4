@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Controllers\WebController;
 use App\Libraries\CockpitService;
 
 class About extends WebController
