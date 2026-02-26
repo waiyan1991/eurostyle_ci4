@@ -230,7 +230,7 @@
 @extends('layouts.master')
 
 @section('content')
-{{-- DEBUG SECTION --}}
+
 <div style="background: #ffc107; padding: 20px; margin: 20px; border: 3px solid #000; border-radius: 10px;">
     <h3 style="color: #000;">🔍 LANGUAGE DEBUG INFO</h3>
     <table style="width: 100%; border-collapse: collapse;">
