@@ -10,7 +10,7 @@
             <div style="width: 60px; height: 3px; background-color: #b08d4a; margin: 20px auto;"></div>
         </div>
 
-        {{-- <div class="row">
+        {{-- {{-- <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: 0.3s;">
                     <div class="card-body p-4">
@@ -111,7 +111,7 @@
         </div>
 
         <div id="apply-form" class="mt-5 p-5 bg-white shadow-sm rounded">
-            <h3 class="text-center fw-bold mb-4">Job Application Form</h3>
+            <h3 class="text-center fw-bold mb-4">Job Application Form</h3> --}}
             <form action="<?= site_url('apply-job') ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field() ?>
                 <div class="row mb-3">
@@ -141,7 +141,7 @@
             </form>
         </div>
     </div>
-</section> --}}
+</section> 
 {{-- <div class="row">
     @foreach($jobs as $job)
     <div class="col-md-6 mb-4">
