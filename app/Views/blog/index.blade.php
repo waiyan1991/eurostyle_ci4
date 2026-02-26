@@ -6,15 +6,7 @@
     <!-- Main Content -->
 
  <!-- Hero Section -->
-    {{-- <section id="hero">
-        <div class="container hero-content">
-            <h1 class="reveal">{!! lang('app.hero_title') !!}</h1>
-            <p class="reveal">{{ lang('app.hero_description') }}</p>
-            <div class="hero-buttons reveal">
-                <a href="#about" class="btn">{{ lang('app.our_story') }}</a>
-            </div>
-        </div>
-    </section> --}}
+
     <section id="hero">
         <img src="../image/hero-image.png" alt="Hero Background" class="hero-bg-img">
 
