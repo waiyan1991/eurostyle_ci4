@@ -224,6 +224,9 @@
 </style>
 @endsection --}}
 
+
+ {{-- section start  --}}
+
 @extends('layouts.master')
 
 @section('content')
