@@ -6,7 +6,7 @@ return [
     'foundation_subtitle' => 'Guided by strong values to build lasting partnerships and superior products.',
     'who_we_are'    => 'Who We Are',
     'view_services' => 'View Services',
-    'hero_title'       => "A garment manufacturer specializing in high-quality women's innerwear, swimwear, and nightwear for the global market",
+    'hero_title'       => 'Premium Lingerie Manufacturer',
     'hero_description' => 'Crafting excellence with precision, quality, and sustainable practices. Your trusted partner in high-end intimate apparel.',
     'our_story'        => 'Our Story',
     'quality_title'    => 'Quality Standards',

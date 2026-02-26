@@ -305,49 +305,157 @@ body.no-scroll {
     width: 100%;
 }
 
-/* --- Hero Section  --- */
-#hero {
-    min-height: 100vh;
-    height: auto;
-    background: linear-gradient(rgba(10, 38, 71, 0.8), rgba(10, 38, 71, 0.6));
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    padding: 100px 0 60px;
-}
 
-.hero-content {
-    width: 100%;
-    padding: 0 15px;
-}
 
-.hero-content h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
-    margin-bottom: 20px;
-    line-height: 1.3;
-}
+        /* --- Hero Section --- */
+        #hero {
+            position: relative;
+            width: 100%;
+            /* height: 100vh ကို ဖြုတ်လိုက်ပါ */
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-.hero-content p {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    margin-bottom: 40px;
-    opacity: 0.95;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 15px;
-}
+        .hero-bg-img {
+            /* ပုံသေသတ်မှတ်ချက်များကို ဖြုတ်ပြီး ဒါကိုသုံးပါ */
+            position: relative;
+            /* absolute မဟုတ်တော့ပါ */
+            width: 100%;
+            height: auto;
+            /* width အလိုက် height က အလိုအလျောက် ကျလာမယ် */
+            display: block;
+            z-index: 0;
+        }
 
-.hero-buttons {
-    display: flex;
-    gap: clamp(15px, 3vw, 20px);
-    justify-content: center;
-    flex-wrap: wrap;
-}
+        /* Liquid Glass Effect */
+        .liquid-glass {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .liquid-glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(125deg,
+                    rgba(212, 175, 55, 0.2) 0%,
+                    rgba(10, 38, 71, 0.5) 40%,
+                    rgba(255, 255, 255, 0.1) 80%);
+            mix-blend-mode: overlay;
+        }
+
+        /* Glass Card Container */
+        .glass-card {
+            position: absolute;
+            /* ပုံရဲ့ အပေါ်မှာ ထပ်ဖို့ */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 38, 71, 0.65);
+            /* ပုံကို ပိုမြင်ရအောင် opacity လျှော့ထားတယ် */
+            z-index: 2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Hero Content Styles */
+        .hero-content {
+            color: white;
+            padding: 0 15px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            /* Screen သေးရင် သေးသလို အလိုအလျောက် ညှိပေးတယ် */
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+
+            /* Glass Text Effect */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: all 0.5s ease;
+            padding: 5px;
+        }
+
+        .hero-content p {
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: all 0.5s ease;
+        }
+
+        /* Hover Interaction */
+        .glass-card:hover h1,
+        .glass-card:hover p {
+            background: linear-gradient(145deg,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(212, 175, 55, 0.9) 40%,
+                    rgba(255, 255, 255, 1) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Buttons */
+        .hero-buttons .btn {
+            padding: 14px 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.4s ease;
+
+            /* Glass Button Style */
+            background: rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: white;
+        }
+
+        .glass-card:hover .btn {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
 /* --- About Section  --- */
 #about {
@@ -799,6 +907,7 @@ body.no-scroll {
     line-height: 1.8;
     margin-bottom: 0;
     text-align: justify;
+    text-indent: 30px;
 }
 
 /* --- Careers Section  --- */
@@ -1340,6 +1449,7 @@ footer {
         max-width: 960px;
     }
     
+
     
     .logo span {
         display: none !important;
@@ -1376,8 +1486,10 @@ footer {
     }
     
     /* ----- LANGUAGE ----- */
-    .lang-desktop {
+    #lang-desktop {
         display: block !important;
+        color: var(--accent-gold) !important;
+
     }
     
     .mobile-lang {
@@ -1410,6 +1522,11 @@ footer {
     .service-card-content h3 {
         font-size: 1.2rem;
     }
+    .service-card-content p {
+       text-indent: 40px;
+     
+    
+    }
     
     /* ----- CSR SECTION ----- */
     #csr .col-md-6:first-child .col-12 .img-wrapper {
@@ -1428,7 +1545,7 @@ footer {
         font-size: 1.6rem !important;
     }
     
-    /* ----- WORK SAFETY SECTION - ၂ကော်လံ (ပုံအရွယ်ချုံ့) ----- */
+    /* ----- WORK SAFETY SECTION - ----- */
     .py-5 .col-lg-6:first-child .col-12 .img-wrapper,
     .py-5 .col-lg-6:first-child img[style*="height: 350px"] {
         height: 300px !important;
@@ -1439,7 +1556,7 @@ footer {
         height: 170px !important;
     }
     
-    /* ----- STATS SECTION - ၅ကော်လံ (တစ်တန်းထဲ) ----- */
+    /* ----- STATS SECTION -  ----- */
     .stats-grid {
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -1455,7 +1572,7 @@ footer {
         font-size: 0.8rem !important;
     }
     
-    /* ----- ABOUT SECTION - ၂ကော်လံ (gap ချုံ့) ----- */
+    /* ----- ABOUT SECTION -  ----- */
     .about-grid {
         gap: 40px;
     }
@@ -1465,12 +1582,12 @@ footer {
         height: 80px;
     }
     
-    /* ----- MISSION SECTION - ၂ကော်လံ (gap ချုံ့) ----- */
+    /* ----- MISSION SECTION - ----- */
     .mv-grid {
         gap: 30px;
     }
     
-    /* ----- CONTACT SECTION - ၂ကော်လံ (padding ချုံ့) ----- */
+    /* ----- CONTACT SECTION -  ----- */
     .contact-info {
         padding: 40px;
     }
@@ -1505,12 +1622,33 @@ footer {
     .logo {
         font-size: 1.2rem !important;  
     }
-    
-    /* ----- HAMBURGER MENU  ----- */
-    .mobile-toggle {
-        display: flex !important;
-        color: var(--primary-blue);
-    }
+        /* ----- HERO SECTION ----- */
+ 
+    .hero-content h1 {
+
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    max-width: 800px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    margin-bottom: 40px;
+    opacity: 0.95;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: clamp(15px, 3vw, 20px);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
     
     .mobile-toggle.active {
         color: var(--white);
@@ -1781,7 +1919,7 @@ footer {
     }
     
     .service-card-content p {
-        text-indent: 0 !important;
+        text-indent: 30px !important;
     }
     
     /* ----- SERVICES INFO ----- */
@@ -1911,6 +2049,7 @@ footer {
         line-height: 1.7 !important;
         font-size: 0.95rem !important;
         color: #555 !important;
+        text-indent: 30px;
     }
     
 
@@ -2293,10 +2432,7 @@ footer {
         font-size: 1.1rem;
     }
     /* ----- HERO SECTION ----- */
-    #hero {
-        min-height: 80vh;
-        padding: 100px 0 60px;
-    }
+
     
     .hero-content h1 {
         font-size: 1.6rem !important;  
@@ -2328,7 +2464,12 @@ footer {
         font-size: 1.8rem;
     }
     
-    /* ----- HERO ----- */
+
+        
+    /* ----- HERO SECTION ----- */
+
+       
+
     .hero-content h1 {
         font-size: 1.6rem;
     }
@@ -2659,25 +2800,24 @@ footer {
     
     
     /* ----- HERO SECTION ----- */
-    #hero {
-        min-height: 70vh;
-        padding: 80px 0 50px;
-    }
+
     
     .hero-content h1 {
-        font-size: 1.3rem !important;
+        font-size: 0.9rem !important;
         line-height: 1.4;
         margin-bottom: 12px;
     }
     
     .hero-content p {
-        font-size: 0.85rem !important;
+        font-size: 0.5rem !important;
         margin-bottom: 25px;
     }
     
     .hero-buttons .btn {
-        padding: 8px 24px !important;
-        font-size: 0.8rem !important;
+        padding: 5px;
+        font-size: 0.5rem !important;
+        /* min-width: unset; */
+        width: auto;
     }
     
     /* ----- SECTION HEADER ----- */
@@ -3042,7 +3182,7 @@ footer {
     
     .nav-container {
         display: flex !important;
-        justify-content: space-evenly !important;
+        justify-content: space-between!important;
         align-items: center !important;
         padding: 0 10px !important;
         height: 55px !important;
