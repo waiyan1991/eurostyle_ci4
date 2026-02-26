@@ -225,6 +225,12 @@
 @endsection --}}
 
 
+<<<<<<< HEAD
+=======
+{{-- test end  --}}
+
+
+>>>>>>> home-page
  {{-- section start  --}}
 
 @extends('layouts.master')
