@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-{{-- @section('title', 'Eurostyle Myanmar | Premium Lingerie Manufacturer') --}}
+
 
 @section('content')
     <!-- Main Content -->
