@@ -5,7 +5,7 @@
 @section('content')
     <!-- Main Content -->
 
- <!-- Hero Section -->
+ <!-- Hero Section  start-->
 
     <section id="hero">
         <img src="../image/hero-image.png" alt="Hero Background" class="hero-bg-img">
