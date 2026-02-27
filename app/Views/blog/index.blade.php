@@ -135,6 +135,85 @@
         </div>
     </section>
 
+
+    {{-- servie card test start  --}}
+
+    <!-- Services Section Start -->
+<section id="services" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>{{ lang('app.services_title') }}</h2>
+                <p class="section-subtitle">{{ lang('app.services_subtitle') }}</p>
+            </div>
+            
+            <div class="services-intro">
+                <p>{{ lang('app.services_intro_text') }}</p>
+            </div>
+            
+            <!-- Services Info Boxes -->
+            <div class="services-info mb-5">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="info-box h-100">
+                            <h4><i class="fas fa-certificate"></i> {{ lang('app.quality_title') }}</h4>
+                            <p>{{ lang('app.quality_desc') }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-box h-100">
+                            <h4><i class="fas fa-shipping-fast"></i> {{ lang('app.production_title') }}</h4>
+                            <p>{{ lang('app.production_desc') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Services Cards -->
+            <div class="services-cards">
+            <div class="row g-4 justify-content-center">
+                @if(!empty($services))
+                    @foreach($services as $service)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="service-card h-100">
+                                <div class="service-card-image" style="overflow: hidden; border-radius: 12px 12px 0 0;">
+                                    <img src="{{ $service['service_image_url'] }}" 
+                                         alt="{{ $service['service_name'] ?? 'Service' }}" 
+                                         class="img-fluid" 
+                                         loading="lazy"
+                                         onclick="openBootstrapModal('{{ $service['service_image_url'] }}')"
+                                         style="cursor: pointer; width: 100%; height: 250px; object-fit: cover; transition: transform 0.3s ease;">
+                                </div>
+                                <div class="service-card-content p-4">
+                                    <h3 class="h5 fw-bold mb-3">{{ $service['service_name'] ?? 'Untitled Service' }}</h3>
+                                     <p>{{ strip_tags($service['service_description'] ?? '') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-12">
+                        <p class="text-center text-muted py-5">{{ $current_locale == 'my' ? 'ဝန်ဆောင်မှုများ မရှိသေးပါ' : 'No services found.' }}</p>
+                    </div>
+                @endif
+            </div>
+        </div>
+
+            
+        </div>
+    </section>
+        
+       
+    
+    
+    
+    
+    
+    
+    
+
+
+    {{-- servie card test end --}}
+
     <!-- Stats Section -->
     <section id="stats" class="section-padding">
         <div class="container">
@@ -497,8 +576,141 @@
    
     
  <!-- test start -->
-<!-- CSR Section Start -->
 <section id="csr" class="py-5 bg-white">
+    <div class="container">
+        <div class="section-header text-center mb-4">
+            <h2 class="fw-bold">{{ lang('app.csr_title') }}</h2>
+            <p class="section-subtitle">{{ lang('app.csr_subtitle') }}</p>
+        </div>
+        
+        <div class="csr-intro text-center mb-5">
+            <p>{{ lang('app.csr_intro_text') }}</p>
+        </div>
+        
+        @if(!empty($activities))
+            <!-- Alpine.js Component -->
+            <div x-data="{ 
+                fullscreenImage: null,
+                openFullscreen(img) {
+                    this.fullscreenImage = img;
+                }
+            }">
+                @foreach($activities as $item)
+                    <!-- CSR Card - Row with 2 columns -->
+                    <div class="row mb-5 align-items-stretch">
+                        <!-- LEFT COLUMN - Images (50%) -->
+                        <div class="col-md-6">
+                            <div class="row g-2">
+                                <!-- Main Image - Large -->
+                                <div class="col-12 mb-2">
+                                    <div class="img-wrapper" style="height: 350px; width: 100%; overflow: hidden; border-radius: 12px;">
+                                        <img 
+                                            src="{{ $item['activity_image_url'] }}" 
+                                            alt="Main" 
+                                            @click="openFullscreen('{{ $item['activity_image_url'] }}')"
+                                            class="gallery-img cursor-pointer"
+                                            style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s;"
+                                        >
+                                    </div>
+                                </div>
+                                <!-- 3 Sub Images -->
+                                <div class="col-4">
+                                    <div class="img-wrapper" style="height: 150px; width: 100%; overflow: hidden; border-radius: 8px;">
+                                        <img 
+                                            src="{{ $item['image_2_url'] }}" 
+                                            alt="Sub 1" 
+                                            @click="openFullscreen('{{ $item['image_2_url'] }}')"
+                                            class="gallery-img cursor-pointer"
+                                            style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s;"
+                                        >
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="img-wrapper" style="height: 150px; width: 100%; overflow: hidden; border-radius: 8px;">
+                                        <img 
+                                            src="{{ $item['image_3_url'] }}" 
+                                            alt="Sub 2" 
+                                            @click="openFullscreen('{{ $item['image_3_url'] }}')"
+                                            class="gallery-img cursor-pointer"
+                                            style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s;"
+                                        >
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="img-wrapper" style="height: 150px; width: 100%; overflow: hidden; border-radius: 8px;">
+                                        <img 
+                                            src="{{ $item['image_4_url'] }}" 
+                                            alt="Sub 3" 
+                                            @click="openFullscreen('{{ $item['image_4_url'] }}')"
+                                            class="gallery-img cursor-pointer"
+                                            style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s;"
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- RIGHT COLUMN - Content (50%) -->
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div class="p-4">
+                                <h4 class="fw-bold text-dark">{{ $item['activity_name'] }}</h4>
+                                <div class="divider-sm mb-4"></div>
+                                
+                                {{-- Description with limited words --}}
+                                <div class="text-muted csr-desc mb-4">
+                                    {!! ($item['activity_description'])!!}
+                                </div>
+                                
+                                {{-- Read More Button --}}
+                                <div class="mt-3">
+                                    <a href="{{ base_url( (session('language') ?? 'en') . '/blog/' . ($item['slug'] ?? $item['_id']) ) }}" 
+                                       class="btn btn-outline-primary">
+                                        {{ session('language') == 'my' ? 'အသေးစိတ်ဖတ်ရန်' : 'Read More' }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                
+                <!-- Fullscreen Modal -->
+                <template x-if="fullscreenImage">
+                    <div 
+                        class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+                        @click="fullscreenImage = null"
+                        style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: flex; align-items: center; justify-content: center;"
+                    >
+                        <!-- Close Button -->
+                        <button 
+                            @click="fullscreenImage = null"
+                            style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; background: none; border: none; cursor: pointer; z-index: 10000;"
+                        >
+                            &times;
+                        </button>
+                        
+                        <!-- Fullscreen Image -->
+                        <img 
+                            :src="fullscreenImage" 
+                            style="max-width: 90%; max-height: 90%; object-fit: contain;"
+                            @click.stop
+                        >
+                    </div>
+                </template>
+            </div>
+        @else
+            <div class="text-center py-5">
+                <p class="text-muted">{{ $current_locale == 'my' ? 'လှုပ်ရှားမှုများ မရှိသေးပါ' : 'No activities found' }}</p>
+            </div>
+        @endif
+    </div>
+</section>
+
+  <!--test section end -->
+
+
+  {{-- testing start --}}
+
+  <section id="csr" class="py-5 bg-white">
     <div class="container">
         <div class="section-header text-center mb-4">
             <h2 class="fw-bold">{{ lang('app.csr_title') }}</h2>
@@ -519,23 +731,47 @@
                             <!-- Main Image - Large -->
                             <div class="col-12 mb-2">
                                 <div class="img-wrapper" style="height: 350px; width: 100%; overflow: hidden; border-radius: 12px;">
-                                    <img src="{{ $item['activity_image_url'] }}" class="gallery-img" alt="Main" style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s;">
+                                    <img 
+                                        src="{{ $item['activity_image_url'] }}" 
+                                        alt="Main" 
+                                        onclick="openBootstrapModal('{{ $item['activity_image_url'] }}')"
+                                        class="gallery-img"
+                                        style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s; cursor: pointer;"
+                                    >
                                 </div>
                             </div>
                             <!-- 3 Sub Images -->
                             <div class="col-4">
                                 <div class="img-wrapper" style="height: 150px; width: 100%; overflow: hidden; border-radius: 8px;">
-                                    <img src="{{ $item['image_2_url'] }}" class="gallery-img" alt="Sub 1" style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s;">
+                                    <img 
+                                        src="{{ $item['image_2_url'] }}" 
+                                        alt="Sub 1" 
+                                        onclick="openBootstrapModal('{{ $item['image_2_url'] }}')"
+                                        class="gallery-img"
+                                        style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s; cursor: pointer;"
+                                    >
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="img-wrapper" style="height: 150px; width: 100%; overflow: hidden; border-radius: 8px;">
-                                    <img src="{{ $item['image_3_url'] }}" class="gallery-img" alt="Sub 2" style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s;">
+                                    <img 
+                                        src="{{ $item['image_3_url'] }}" 
+                                        alt="Sub 2" 
+                                        onclick="openBootstrapModal('{{ $item['image_3_url'] }}')"
+                                        class="gallery-img"
+                                        style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s; cursor: pointer;"
+                                    >
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="img-wrapper" style="height: 150px; width: 100%; overflow: hidden; border-radius: 8px;">
-                                    <img src="{{ $item['image_4_url'] }}" class="gallery-img" alt="Sub 3" style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s;">
+                                    <img 
+                                        src="{{ $item['image_4_url'] }}" 
+                                        alt="Sub 3" 
+                                        onclick="openBootstrapModal('{{ $item['image_4_url'] }}')"
+                                        class="gallery-img"
+                                        style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.3s; cursor: pointer;"
+                                    >
                                 </div>
                             </div>
                         </div>
@@ -571,7 +807,35 @@
     </div>
 </section>
 
-  <!--test section end -->
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="bootstrapFullscreenModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-black">
+            <!-- Image Container - padding နဲ့ချိန်မယ် -->
+            <div class="modal-body d-flex align-items-center justify-content-center" 
+                 style="min-height: 100vh; 
+                        padding-top: 150px;        /* အပေါ်က padding */
+                        padding-bottom: 50px;
+                        padding-left: 30px;
+                        padding-right: 30px;">
+                <img src="" id="modalImage" class="img-fluid" 
+                     style="max-height: 85vh; 
+                            max-width: 100%; 
+                            object-fit: contain;">
+            </div>
+            <!-- X-Button - Minimal Style -->
+            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close" style="position: fixed; top: 120px; right: 30px; color: white; font-size: 42px; font-weight: 100; border: none; background: none; z-index: 9999; opacity: 0.5; padding: 10px; line-height: 0.5;">
+                <span>✕</span>  <!-- ✕ က ပိုပြီးလှတယ် -->
+            </button>
+            
+            <div class="modal-body d-flex align-items-center justify-content-center p-5">
+                <img src="" id="modalImage" class="img-fluid" style="max-height: 85vh; max-width: 100%; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+</div>
+
+  {{-- testing end --}}
 
 
  <!-- Main Content end -->

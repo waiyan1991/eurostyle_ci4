@@ -19,6 +19,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ base_url('css/style.css') }}">
     
+    
     <style>
         /* Bootstrap 5 compatibility */
         /* .dropdown-toggle::after { display: none; }
@@ -165,6 +166,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     {{-- <script src='{{ base_url("js/main.js") }}'></script> --}}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- Mobile Menu Script -->
     <script>
@@ -301,6 +303,18 @@ $(document).on('click', '.dropdown-item', function() {
             window.addEventListener('load', checkReveal);
             checkReveal();
         });
+
+
+
+        // Bootstrap Modal ကို Dynamic ဖွင့်ဖို့
+function openBootstrapModal(imageUrl) {
+    // Modal ထဲက image src ကိုပြောင်းမယ်
+    document.getElementById('modalImage').src = imageUrl;
+    
+    // Bootstrap Modal ကိုဖွင့်မယ်
+    var myModal = new bootstrap.Modal(document.getElementById('bootstrapFullscreenModal'));
+    myModal.show();
+}
     </script>
     
     @stack('scripts')
