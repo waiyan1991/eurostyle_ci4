@@ -2,16 +2,16 @@
 @section('content')
 <!-- test start -->
 
-<section id="careers" class="section-padding" style="background-color: #f9f9f9; padding: 80px 0;">
+{{-- <section id="careers" class="section-padding" style="background-color: #f9f9f9; padding: 80px 0;">
     <div class="container">
         <div class="text-center mb-5">
             <h2 style="font-size: 2.5rem; font-weight: bold; color: #333;">Career Opportunities</h2>
             <p style="color: #777;">ကျွန်ုပ်တို့နှင့်အတူ လက်တွဲလုပ်ကိုင်ရန် ဖိတ်ခေါ်အပ်ပါသည်။</p>
             <div style="width: 60px; height: 3px; background-color: #b08d4a; margin: 20px auto;"></div>
-        </div>
+        </div> --}}
 
         {{-- <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div clasçs="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: 0.3s;">
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between align-items-center mb-3">
