@@ -11,7 +11,7 @@
         </div>
 
         {{-- <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div clasçs="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: 0.3s;">
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between align-items-center mb-3">
