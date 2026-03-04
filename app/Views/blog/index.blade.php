@@ -338,7 +338,7 @@
                     <!-- RIGHT COLUMN - Content (50%) -->
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="p-4">
-                            <h4 class="fw-bold text-dark">{{ $item['activity_name'] }}</h4>
+                            <h4 class="fw-bold text-dark text-start">{{ $item['activity_name'] }}</h4>
                             <div class="divider-sm mb-4"></div>
                             <div class="text-muted csr-desc">
                                 {!! $item['activity_description'] !!}
@@ -653,7 +653,7 @@
                         <!-- RIGHT COLUMN - Content (50%) -->
                         <div class="col-md-6 d-flex align-items-center">
                             <div class="p-4">
-                                <h4 class="fw-bold text-dark">{{ $item['activity_name'] }}</h4>
+                                <h4 class="fw-bold text-dark text-start">{{ $item['activity_name'] }}</h4>
                                 <div class="divider-sm mb-4"></div>
                                 
                                 {{-- Description with limited words --}}
@@ -661,13 +661,7 @@
                                     {!! ($item['activity_description'])!!}
                                 </div>
                                 
-                                {{-- Read More Button --}}
-                                <div class="mt-3">
-                                    <a href="{{ base_url( (session('language') ?? 'en') . '/blog/' . ($item['slug'] ?? $item['_id']) ) }}" 
-                                       class="btn btn-outline-primary">
-                                        {{ session('language') == 'my' ? 'အသေးစိတ်ဖတ်ရန်' : 'Read More' }}
-                                    </a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -780,7 +774,7 @@
                     <!-- RIGHT COLUMN - Content (50%) -->
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="p-4">
-                            <h4 class="fw-bold text-dark">{{ $item['activity_name'] }}</h4>
+                            <h4 class="fw-bold text-dark text-start">{{ $item['activity_name'] }}</h4>
                             <div class="divider-sm mb-4"></div>
                             
                             {{-- Description with limited words --}}
@@ -788,13 +782,8 @@
                                 {!! ($item['activity_description'])!!}
                             </div>
                             
-                            {{-- Read More Button --}}
-                            <div class="mt-3">
-                               <a href="{{ base_url( (session('language') ?? 'en') . '/blog/' . ($item['slug'] ?? $item['_id']) ) }}" 
-   class="btn btn-outline-primary">
-    {{ session('language') == 'my' ? 'အသေးစိတ်ဖတ်ရန်' : 'Read More' }}
-</a>
-                            </div>
+                   
+
                         </div>
                     </div>
                 </div>
@@ -811,7 +800,7 @@
 <div class="modal fade" id="bootstrapFullscreenModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content bg-black">
-            <!-- Image Container - padding နဲ့ချိန်မယ် -->
+            <!-- Image Container - padding -->
             <div class="modal-body d-flex align-items-center justify-content-center" 
                  style="min-height: 100vh; 
                         padding-top: 150px;        /* အပေါ်က padding */
@@ -825,7 +814,7 @@
             </div>
             <!-- X-Button - Minimal Style -->
             <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close" style="position: fixed; top: 120px; right: 30px; color: white; font-size: 42px; font-weight: 100; border: none; background: none; z-index: 9999; opacity: 0.5; padding: 10px; line-height: 0.5;">
-                <span>✕</span>  <!-- ✕ က ပိုပြီးလှတယ် -->
+                <span>✕</span>  
             </button>
             
             <div class="modal-body d-flex align-items-center justify-content-center p-5">
